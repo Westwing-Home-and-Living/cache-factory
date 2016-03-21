@@ -6,7 +6,7 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
-class Memcached extends AbstractConfig
+class Predis extends AbstractConfig
 {
     const INDEX_SERVERS = 'servers';
 
@@ -16,7 +16,7 @@ class Memcached extends AbstractConfig
 
     const INDEX_PORT    = 'port';
 
-    const INDEX_WEIGHT  = 'weight';
+    const INDEX_SCHEME  = 'scheme';
 
     /**
      * Returns the adapter specific config builder
@@ -37,10 +37,10 @@ class Memcached extends AbstractConfig
                                 ->defaultValue('127.0.0.1')
                             ->end()
                             ->scalarNode(self::INDEX_PORT)
-                                ->defaultValue(11211)
+                                ->defaultValue(6379)
                             ->end()
-                            ->scalarNode(self::INDEX_WEIGHT)
-                                ->defaultValue(null)
+                            ->scalarNode(self::INDEX_SCHEME)
+                                ->defaultValue('tcp')
                             ->end()
                         ->end()
                     ->end()
