@@ -8,9 +8,15 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 class Memcached extends AbstractConfig
 {
-    const INDEX_HOST = 'host';
+    const INDEX_SERVERS = 'servers';
 
-    const INDEX_PORT = 'port';
+    const INDEX_OPTIONS = 'options';
+
+    const INDEX_HOST    = 'host';
+
+    const INDEX_PORT    = 'port';
+
+    const INDEX_WEIGHT  = 'weight';
 
     /**
      * Returns the adapter specific config builder
@@ -24,13 +30,24 @@ class Memcached extends AbstractConfig
 
         $node
             ->children()
-                ->scalarNode(self::INDEX_HOST)
-                    ->isRequired()
-                    ->cannotBeEmpty()
+                ->arrayNode(self::INDEX_SERVERS)
+                    ->prototype('array')
+                        ->children()
+                            ->scalarNode(self::INDEX_HOST)
+                                ->isRequired()
+                                ->cannotBeEmpty()
+                            ->end()
+                            ->scalarNode(self::INDEX_PORT)
+                                ->isRequired()
+                                ->cannotBeEmpty()
+                            ->end()
+                            ->scalarNode(self::INDEX_WEIGHT)
+                                ->defaultValue(null)
+                            ->end()
+                        ->end()
+                    ->end()
                 ->end()
-                ->scalarNode(self::INDEX_PORT)
-                    ->isRequired()
-                    ->cannotBeEmpty()
+                ->arrayNode(self::INDEX_OPTIONS)
                 ->end()
             ->end();
 

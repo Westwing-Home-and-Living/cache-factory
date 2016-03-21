@@ -20,7 +20,7 @@ abstract class AbstractAdapter implements AdapterInterface
      */
     public function make(array $config)
     {
-        $cachePoolClassName = $this->getAdapterClassName(__CLASS__);
+        $cachePoolClassName = $this->getAdapterClassName(static::class);
         $cacheDriver        = $this->getConfiguredDriver($config);
 
         return new $cachePoolClassName($cacheDriver);

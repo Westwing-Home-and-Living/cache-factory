@@ -1,6 +1,6 @@
 Cache:
   adapter:
     memcached:
-      type: "Memcached"
-      host: "localhost"
-      port: "11211"
+      type: Memcached
+      servers:
+        memcached1: { host: localhost, port: 11211 }

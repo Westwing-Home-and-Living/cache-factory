@@ -9,11 +9,17 @@ class Memcached extends AbstractAdapter
     protected function getConfiguredDriver(array $config)
     {
         $memcached = new \Memcached();
-        
-        $memcached->addServer(
-            $config[Config::INDEX_HOST],
-            $config[Config::INDEX_PORT]
-        );
+
+        foreach ($config[Config::INDEX_SERVERS] as $server) {
+            $memcached->addServer(
+                $server[Config::INDEX_HOST],
+                $server[Config::INDEX_PORT]
+            );
+        }
+
+        if (!empty($config[Config::INDEX_OPTIONS])) {
+            $memcached->setOptions($config[Config::INDEX_OPTIONS]);
+        }
 
         return $memcached;
     }
