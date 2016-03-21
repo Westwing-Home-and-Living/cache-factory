@@ -9,9 +9,11 @@ class Predis extends AbstractAdapter
 {
     protected function getConfiguredDriver(array $config)
     {
+        $options = (!empty($config[Config::INDEX_OPTIONS])) ? $config[Config::INDEX_OPTIONS] : null;
+
         $client = new Client(
             $config[Config::INDEX_SERVERS],
-            $config[Config::INDEX_OPTIONS]
+            $options
         );
 
         return $client;
