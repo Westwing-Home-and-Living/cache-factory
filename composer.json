@@ -1,0 +1,34 @@
+{
+  "name": "dgreda/cache-factory",
+  "description": "Simple factory for php-cache/cache library (PSR-6 Cache implementation)",
+  "license": "MIT",
+  "keywords": [
+    "cache",
+    "PSR-6",
+    "memcached",
+    "redis",
+    "factory"
+  ],
+  "authors": [
+    {
+      "name": "Damian Gręda",
+      "email": "dj.dmg0@gmail.com"
+    }
+  ],
+  "require": {
+    "symfony/yaml": "2.6.*",
+    "symfony/config": "2.6.*",
+    "cache/cache": "0.1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.8.*"
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cache\\": "src/"
+    }
+  }
+}
