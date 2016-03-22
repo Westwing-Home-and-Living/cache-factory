@@ -5,6 +5,7 @@ namespace Cache\Factory;
 use Cache\Factory\Adapter\AdapterInterface;
 use Cache\Factory\Config\Adapter\AdapterInterface as Config;
 use Cache\Factory\Config\Loader;
+use Cache\Taggable\TaggablePSR6PoolAdapter;
 use Psr\Cache\CacheItemPoolInterface;
 use RuntimeException;
 
@@ -148,6 +149,18 @@ class Factory
         $cachePool              = $cachePoolFactory->make($adapterConfiguration);
 
         return $cachePool;
+    }
+
+    /**
+     * Creates and returns an instance of Taggable Cache Pool type specified by adapter name.
+     *
+     * @param string $adapterName The name of the adapter to use
+     *
+     * @return \Cache\Taggable\TaggablePoolInterface
+     */
+    public function makeTaggable($adapterName)
+    {
+        return TaggablePSR6PoolAdapter::makeTaggable($this->make($adapterName));
     }
 
     /**
