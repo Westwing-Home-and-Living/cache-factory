@@ -7,11 +7,13 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 interface AdapterInterface extends ConfigurationInterface
 {
-    const INDEX_CACHE   = 'Cache';
+    const INDEX_CACHE           = 'Cache';
 
-    const INDEX_ADAPTER = 'adapter';
+    const INDEX_ADAPTER         = 'adapter';
 
-    const INDEX_TYPE    = 'type';
+    const INDEX_TYPE            = 'type';
+
+    const INDEX_DEFAULT_ADAPTER = 'default';
 
     /**
      * Returns the adapter specific config builder
