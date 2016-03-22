@@ -1,0 +1,5 @@
+Cache:
+  adapter:
+    local:
+      type: Filesystem
+      path: '/tmp'
