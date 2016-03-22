@@ -1,5 +1,8 @@
 Cache:
   adapter:
+    local:
+      type: Filesystem
+      path: '/tmp'
     memcached:
       type: Memcached
       servers:
