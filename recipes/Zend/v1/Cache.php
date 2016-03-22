@@ -52,7 +52,7 @@ class Cache extends Zend_Application_Resource_ResourceAbstract
 
             $cachePoolFactory->setConfig($cachePoolConfig);
 
-            $cachePool = $cachePoolFactory->make($adapterName);
+            $cachePool = $cachePoolFactory->makeTaggable($adapterName);
 
             Zend_Registry::set($adapterName, $cachePool);
 
