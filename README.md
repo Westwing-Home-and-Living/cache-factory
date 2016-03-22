@@ -16,6 +16,14 @@ To offer a simple way of creating different cache pool adapters based on simplif
 
 The factory creates and returns a PSR-6 compatible cache pool based on small and tidy configuration provided as either PHP array or via YAML configuration file.
 
+## Installation
+
+Library is available on Packagist, so you can simply run:
+
+```
+composer require "dgreda/cache-factory":"v0.1.0"
+```
+
 ## Adapters
 
 Currently factory supports the following adapters:
