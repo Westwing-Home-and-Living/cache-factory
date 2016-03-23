@@ -3,7 +3,7 @@
 use Cache\Factory\Config\Adapter\AbstractConfig as Config;
 use Cache\Factory\Factory;
 
-class Cache extends Zend_Application_Resource_ResourceAbstract
+class CachePool extends Zend_Application_Resource_ResourceAbstract
 {
     /**
      * Creates the PSR-6 cache pool based on the application.ini config
@@ -21,7 +21,7 @@ class Cache extends Zend_Application_Resource_ResourceAbstract
         }
 
         try {
-            $config = $config->resources->Cache;
+            $config = $config->resources->CachePool;
         } catch (Exception $e) {
             throw new Exception(Factory::EXCEPTION_CONFIG_AND_CONFIG_FILE_NOT_SET);
         }
