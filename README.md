@@ -21,7 +21,7 @@ The factory creates and returns a PSR-6 compatible cache pool based on small and
 Library is available on Packagist, so you can simply run:
 
 ```
-composer require "dgreda/cache-factory":"v0.1.0"
+composer require "dgreda/cache-factory":"v0.1.*"
 ```
 
 ## Adapters
