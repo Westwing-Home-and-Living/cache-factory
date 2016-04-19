@@ -1,5 +1,5 @@
 {
-  "name": "dgreda/cache-factory",
+  "name": "Westwing-Home-and-Living/cache-factory",
   "description": "Simple factory for php-cache/cache library (PSR-6 Cache implementation)",
   "license": "MIT",
   "keywords": [
