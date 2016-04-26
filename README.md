@@ -21,7 +21,7 @@ The factory creates and returns a PSR-6 compatible cache pool based on small and
 Library is available on Packagist, so you can simply run:
 
 ```
-composer require "dgreda/cache-factory":"v0.1.*"
+composer require "Westwing-Home-and-Living/cache-factory":"v0.1.*"
 ```
 
 ## Adapters
