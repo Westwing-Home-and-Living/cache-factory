@@ -13,7 +13,7 @@ interface AdapterInterface extends ConfigurationInterface
 
     const INDEX_TYPE            = 'type';
 
-    const INDEX_DEFAULT_ADAPTER = 'default';
+    const INDEX_DEFAULT_ADAPTER = 'defaultAdapter';
 
     /**
      * Returns the adapter specific config builder
