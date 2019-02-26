@@ -3,3 +3,5 @@ Cache:
     local:
       type: Filesystem
       path: '/tmp'
+    memory:
+      type: PHPArray
