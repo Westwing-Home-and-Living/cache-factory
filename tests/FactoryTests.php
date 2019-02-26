@@ -90,7 +90,7 @@ class FactoryTests extends PHPUnit_Framework_TestCase
         $taggableCachePool = $cachePoolFactory->makeTaggable($this->adapterName);
 
         $this->assertInstanceOf('Psr\\Cache\\CacheItemPoolInterface', $cachePool);
-        $this->assertInstanceOf('Cache\\Taggable\\TaggablePoolInterface', $taggableCachePool);
+        $this->assertInstanceOf('Cache\\TagInterop\\TaggableCacheItemPoolInterface', $taggableCachePool);
     }
 
     /**
