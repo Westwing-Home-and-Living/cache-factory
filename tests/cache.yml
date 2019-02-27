@@ -5,3 +5,5 @@ Cache:
       path: '/tmp'
     memory:
       type: PHPArray
+      limit: 9
+      cache: { var1: 'value1', var2: 'value2' }
