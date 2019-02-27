@@ -15,7 +15,7 @@ class PHPArray extends AbstractAdapter
      */
     public function make(array $config)
     {
-        $this->cachePoolClassName = $this->getAdapterClassName(static::class);
+        $this->cachePoolClassName = $this->getAdapterClassName(self::class);
         $cacheDriver              = $this->getConfiguredDriver($config);
 
         return $cacheDriver;
