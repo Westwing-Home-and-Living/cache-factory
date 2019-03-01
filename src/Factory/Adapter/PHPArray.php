@@ -2,16 +2,42 @@
 
 namespace Cache\Factory\Adapter;
 
+use Cache\Factory\Config\Adapter\PHPArray as Config;
+
 class PHPArray extends AbstractAdapter
 {
     const ADAPTER_NAMESPACE_TEMPLATE = '\\Cache\\Adapter\\%s\\ArrayCachePool';
+
+    protected $cachePoolClassName;
+
+    /**
+     * @inheritdoc
+     */
+    public function make(array $config)
+    {
+        $this->cachePoolClassName = $this->getAdapterClassName(self::class);
+        $cacheDriver              = $this->getConfiguredDriver($config);
+
+        return $cacheDriver;
+    }
 
     /**
      * @inheritdoc
      */
     protected function getConfiguredDriver(array $config)
     {
-        return new \Cache\Adapter\PHPArray\ArrayCachePool();
+        $cacheLimit        = $config[Config::INDEX_LIMIT];
+        $cacheInitialArray = $config[Config::INDEX_CACHE_ARRAY];
+
+        foreach ($cacheInitialArray as $key => $value) {
+            $cacheInitialArray[$key] = [
+                0 => $value,
+                1 => [],
+                2 => null
+            ];
+        }
+
+        return new $this->cachePoolClassName($cacheLimit, $cacheInitialArray);
     }
 
     /**
